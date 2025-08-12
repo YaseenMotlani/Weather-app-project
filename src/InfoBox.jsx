@@ -17,23 +17,32 @@ export default function InfoBox({ info }) {
     const BG_CLOUDY = "https://images.unsplash.com/photo-1501594907352-04cda38ebc29";
 
 
-
     // const getImage = () => {
-    //     if (info.humidity > 70) return RAIN_URL;
+    //     // Check temperature first
     //     if (info.temp > 15) return HOT_URL;
-    //     return COLD_URL;
+    //     if (info.temp <= 15) return COLD_URL;
+    //     if (info.humidity > 70) return RAIN_URL;
+
+    //     // Then handle other conditions
+    //     if (info.humidity > 70) return RAIN_URL;
+
+    //     // Fallback in case none of the above are true
+    //     return COLD_URL; 
     // };
-    const getImage = () => {
-        // Check temperature first
-        if (info.temp > 15) return HOT_URL;
-        if (info.temp <= 15) return COLD_URL;
 
-        // Then handle other conditions
-        if (info.humidity > 70) return RAIN_URL;
+        const getImage = () => {
+            let isHot = info.temp > 15;
+            let isCold = info.temp <= 15;
+            let isRainy = info.humidity > 70;
 
-        // Fallback in case none of the above are true
-        return COLD_URL; 
-    };
+            if (isRainy && isHot) return RAIN_URL;      // Hot & rainy
+            if (isRainy && isCold) return RAIN_URL;     // Cold & rainy
+            if (isHot) return HOT_URL;                  // Just hot
+            if (isCold) return COLD_URL;                // Just cold
+
+            return COLD_URL; // fallback
+        };
+
 
     const getBackground = () => {
         // const weatherLower = info.weather.toLowerCase();
