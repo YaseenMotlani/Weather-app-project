@@ -33,13 +33,11 @@ export default function InfoBox({ info }) {
         const getImage = () => {
             let isHot = info.temp > 15;
             let isCold = info.temp <= 15;
-            let isRainy = info.humidity > 70;
+            let isHumid = info.humidity > 80;
 
-            if (isRainy && isHot) return RAIN_URL;      // Hot & rainy
-            if (isRainy && isCold) return RAIN_URL;     // Cold & rainy
-            if (isHot) return HOT_URL;                  // Just hot
-            if (isCold) return COLD_URL;                // Just cold
-
+            if (isHumid && isHot) return RAIN_URL;      // Hot & rainy
+            if (isHumid && isCold) return COLD_URL;     // Cold & rainy
+            if (isHumid && isHot) return HOT_URL;
             return COLD_URL; // fallback
         };
 
