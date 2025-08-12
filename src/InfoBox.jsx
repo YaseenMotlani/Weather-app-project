@@ -8,13 +8,13 @@ export default function InfoBox({ info }) {
     const HOT_URL = "https://media.nfuonline.com/uploaded_files/_media/13/eb84e56e-8646-447f-8d39-7b35d5670cb5_800.jpg?ratio=1.875&width=800&scale=1";
     const COLD_URL = "https://media.istockphoto.com/id/853844276/photo/blue-ice-and-cracks-on-the-surface-of-the-ice-frozen-lake-under-a-blue-sky-in-the-winter-the.jpg?s=612x612&w=0&k=20&c=gtWZP3TFa9ALn597BTe5atl3GkEsafs6B8bedSo6tvU=";
     const RAIN_URL = "https://media.istockphoto.com/id/1257951336/photo/transparent-umbrella-under-rain-against-water-drops-splash-background-rainy-weather-concept.jpg?s=612x612&w=0&k=20&c=lNvbIw1wReb-owe7_rMgW8lZz1zElqs5BOY1AZhyRXs=";
-    // const CLOUD_URL = "https://images.unsplash.com/photo-1501594907352-04cda38ebc29";
+    const CLOUD_URL = "https://cdn.zmescience.com/wp-content/uploads/2017/07/8690313402_5f76f736b3_k-1.jpg";
 
     const BG_SUNNY = "https://clipart-library.com/2024/sunny-weather-picture/sunny-weather-picture-8.jpg";
     // const BG_SUNNY = "https://img.lovepik.com/photo/60235/2734.jpg_wh860.jpg"
     const BG_RAINY = "https://www.shutterstock.com/image-photo/rain-nature-background-monsoon-260nw-2320165225.jpg";
     const BG_COLD  = "https://t4.ftcdn.net/jpg/09/78/96/21/360_F_978962188_qb1rk9JdCsbNG6yIlIp1SIB8gXsdXcgj.jpg";
-
+    const BG_CLOUD = "https://wallpapers.com/images/hd/sunny-day-wallpaper-r3ac0uiesj5nudr3.jpg"
 
     // const getImage = () => {
     //     // Check temperature first
@@ -37,7 +37,7 @@ export default function InfoBox({ info }) {
             if (isHumid && isHot) return RAIN_URL;      // Hot & rainy
             if (isHumid && isCold) return COLD_URL;     // Cold & rainy
             if (isHumid && isHot) return HOT_URL;
-            // return COLD_URL; // fallback
+            return CLOUD_URL; // fallback
         };
 
 
@@ -61,7 +61,7 @@ export default function InfoBox({ info }) {
             if (isHumid && isHot) return BG_RAINY;      // Hot & rainy
             if (isHumid && isCold) return BG_COLD;     // Cold & rainy
             if (isHumid && isHot) return BG_SUNNY;
-            return BG_COLD; // fallback
+            return BG_CLOUD; // fallback
         };
 
 
