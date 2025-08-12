@@ -18,23 +18,34 @@ export default function InfoBox({ info }) {
 
 
 
+    // const getImage = () => {
+    //     if (info.humidity > 70) return RAIN_URL;
+    //     if (info.temp > 15) return HOT_URL;
+    //     return COLD_URL;
+    // };
     const getImage = () => {
-        if (info.humidity > 70) return RAIN_URL;
+        // Check temperature first
         if (info.temp > 15) return HOT_URL;
-        return COLD_URL;
+        if (info.temp <= 15) return COLD_URL;
+
+        // Then handle other conditions
+        if (info.humidity > 70) return RAIN_URL;
+
+        // Fallback in case none of the above are true
+        return COLD_URL; 
     };
 
     const getBackground = () => {
-    // const weatherLower = info.weather.toLowerCase();
+        // const weatherLower = info.weather.toLowerCase();
 
-    // if (weatherLower.includes("rain")) return BG_RAINY;
-    // if (weatherLower.includes("cloud")) return BG_CLOUDY;
-    // if (info.temp < 15) return BG_COLD;
-    // return BG_SUNNY;
-    if (info.humidity > 70) return BG_RAINY;
+        // if (weatherLower.includes("rain")) return BG_RAINY;
+        // if (weatherLower.includes("cloud")) return BG_CLOUDY;
+        // if (info.temp < 15) return BG_COLD;
+        // return BG_SUNNY;
+        if (info.humidity > 70) return BG_RAINY;
         if (info.temp > 15) return BG_SUNNY;
         return BG_COLD;
-};
+    };
 
 
     return (
