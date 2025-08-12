@@ -13,8 +13,7 @@ export default function InfoBox({ info }) {
     const BG_SUNNY = "https://clipart-library.com/2024/sunny-weather-picture/sunny-weather-picture-8.jpg";
     // const BG_SUNNY = "https://img.lovepik.com/photo/60235/2734.jpg_wh860.jpg"
     const BG_RAINY = "https://www.shutterstock.com/image-photo/rain-nature-background-monsoon-260nw-2320165225.jpg";
-    const BG_COLD  = "https://images.unsplash.com/photo-1519681393784-d120267933ba";
-    const BG_CLOUDY = "https://images.unsplash.com/photo-1501594907352-04cda38ebc29";
+    const BG_COLD  = "https://t4.ftcdn.net/jpg/09/78/96/21/360_F_978962188_qb1rk9JdCsbNG6yIlIp1SIB8gXsdXcgj.jpg";
 
 
     // const getImage = () => {
@@ -42,17 +41,28 @@ export default function InfoBox({ info }) {
         };
 
 
-    const getBackground = () => {
+    // const getBackground = () => {
         // const weatherLower = info.weather.toLowerCase();
 
         // if (weatherLower.includes("rain")) return BG_RAINY;
         // if (weatherLower.includes("cloud")) return BG_CLOUDY;
         // if (info.temp < 15) return BG_COLD;
         // return BG_SUNNY;
-        if (info.humidity > 70) return BG_RAINY;
-        if (info.temp > 15) return BG_SUNNY;
-        return BG_COLD;
-    };
+    //     if (info.humidity > 70) return BG_RAINY;
+    //     if (info.temp > 15) return BG_SUNNY;
+    //     return BG_COLD;
+    // };
+
+    const getBackground = () => {
+            let isHot = info.temp > 15;
+            let isCold = info.temp <= 15;
+            let isHumid = info.humidity > 80;
+
+            if (isHumid && isHot) return BG_RAINY;      // Hot & rainy
+            if (isHumid && isCold) return BG_COLD;     // Cold & rainy
+            if (isHumid && isHot) return BG_SUNNY;
+            return BG_COLD; // fallback
+        };
 
 
     return (
