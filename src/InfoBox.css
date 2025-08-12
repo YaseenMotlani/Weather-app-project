@@ -1,0 +1,28 @@
+.InfoBox {
+    text-align: center;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.InfoBox {
+    position: relative;
+}
+
+.InfoBox::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    backdrop-filter: blur(2px); /* Slight blur */
+    z-index: 0;
+}
+
+.cardContainer {
+    position: relative;
+    z-index: 1;
+}
+
