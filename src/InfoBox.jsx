@@ -37,7 +37,7 @@ export default function InfoBox({ info }) {
             if (isHumid && isHot) return RAIN_URL;      // Hot & rainy
             if (isHumid && isCold) return COLD_URL;     // Cold & rainy
             if (isHumid && isHot) return HOT_URL;
-            return COLD_URL; // fallback
+            // return COLD_URL; // fallback
         };
 
 
