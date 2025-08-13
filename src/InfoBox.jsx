@@ -56,7 +56,7 @@ export default function InfoBox({ info }) {
     const getBackground = () => {
             let isHot = info.temp > 15;
             let isCold = info.temp <= 15;
-            let isHumid = info.humidity > 80;
+            let isHumid = info.humidity > 75;
 
             if (isHumid && isHot) return BG_RAINY;      // Hot & rainy
             if (isHumid && isCold) return BG_COLD;     // Cold & rainy
